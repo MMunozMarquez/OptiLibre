@@ -14,13 +14,13 @@ OptiLibre uses to solve models.
 
 ### Windows
 
-Download and run the [OptiLibre 6.0 Windows installer](windows-installer/OptiLibre-Setup-6.0.exe),
+Download and run the [OptiLibre 6.0 Windows installer](../../windows-installer/OptiLibre-Setup-6.0.exe),
 then follow the setup wizard. The installer is for 64-bit Windows.
 
 ### Linux
 
 Download the Debian package for 64-bit (amd64) systems:
-[optilibre_6.0_amd64.deb](linux-package/optilibre_6.0_amd64.deb).
+[optilibre_6.0_amd64.deb](../../linux-package/optilibre_6.0_amd64.deb).
 To install it with APT, open a terminal in your Downloads folder and run:
 
 ```sh
