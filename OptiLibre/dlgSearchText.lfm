@@ -1,0 +1,104 @@
+object dlgSearchText: TdlgSearchText
+  Left = 300
+  Height = 230
+  Top = 200
+  Width = 420
+  BorderIcons = [biSystemMenu]
+  BorderStyle = bsDialog
+  Caption = 'Find'
+  ClientHeight = 230
+  ClientWidth = 420
+  Position = poMainFormCenter
+  LCLVersion = '4.8.0.0'
+  object lblSearchText: TLabel
+    Left = 16
+    Height = 16
+    Top = 18
+    Width = 69
+    Caption = 'Text to find:'
+    FocusControl = edSearchText
+  end
+  object edSearchText: TEdit
+    Left = 96
+    Height = 26
+    Top = 13
+    Width = 308
+    TabOrder = 0
+    OnChange = edSearchTextChange
+  end
+  object cbMatchCase: TCheckBox
+    Left = 16
+    Height = 23
+    Top = 52
+    Width = 150
+    Caption = 'Case sensitive'
+    TabOrder = 1
+  end
+  object cbWholeWord: TCheckBox
+    Left = 16
+    Height = 23
+    Top = 78
+    Width = 150
+    Caption = 'Whole words only'
+    TabOrder = 2
+  end
+  object cbEntireScope: TCheckBox
+    Left = 16
+    Height = 23
+    Top = 104
+    Width = 150
+    Caption = 'Search entire file'
+    TabOrder = 3
+  end
+  object cbSelectedOnly: TCheckBox
+    Left = 16
+    Height = 23
+    Top = 130
+    Width = 162
+    Caption = 'Selected text only'
+    TabOrder = 4
+  end
+  object cbRegExpr: TCheckBox
+    Left = 16
+    Height = 23
+    Top = 156
+    Width = 162
+    Caption = 'Regular expression'
+    TabOrder = 5
+  end
+  object rgDirection: TRadioGroup
+    Left = 184
+    Height = 62
+    Top = 50
+    Width = 220
+    Caption = 'Direction'
+    Columns = 2
+    ItemIndex = 0
+    Items.Strings = (
+      'Forward'
+      'Backward'
+    )
+    TabOrder = 6
+  end
+  object btnFind: TButton
+    Left = 224
+    Height = 30
+    Top = 182
+    Width = 88
+    Caption = 'Find'
+    Default = True
+    Enabled = False
+    TabOrder = 7
+    OnClick = btnFindClick
+  end
+  object btnClose: TButton
+    Left = 316
+    Height = 30
+    Top = 182
+    Width = 88
+    Cancel = True
+    Caption = 'Close'
+    TabOrder = 8
+    OnClick = btnCloseClick
+  end
+end

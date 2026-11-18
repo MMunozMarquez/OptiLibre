@@ -1,0 +1,51 @@
+object dlgGotoLineNumber: TdlgGotoLineNumber
+  Left = 300
+  Height = 112
+  Top = 200
+  Width = 320
+  BorderIcons = [biSystemMenu]
+  BorderStyle = bsDialog
+  Caption = 'Go to line number'
+  ClientHeight = 112
+  ClientWidth = 320
+  Position = poMainFormCenter
+  LCLVersion = '4.8.0.0'
+  object lblLineNumber: TLabel
+    Left = 16
+    Height = 16
+    Top = 20
+    Width = 91
+    Caption = 'Line number:'
+    FocusControl = edtLineNumber
+  end
+  object edtLineNumber: TSpinEdit
+    Left = 112
+    Height = 28
+    Top = 14
+    Width = 192
+    MaxValue = 1
+    MinValue = 1
+    TabOrder = 0
+    Value = 1
+  end
+  object btnGo: TButton
+    Left = 128
+    Height = 30
+    Top = 64
+    Width = 80
+    Caption = 'Go'
+    Default = True
+    ModalResult = 1
+    TabOrder = 1
+  end
+  object btnCancel: TButton
+    Left = 216
+    Height = 30
+    Top = 64
+    Width = 88
+    Cancel = True
+    Caption = 'Cancel'
+    ModalResult = 2
+    TabOrder = 2
+  end
+end

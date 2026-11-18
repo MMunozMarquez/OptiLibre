@@ -1,0 +1,1093 @@
+object MainForm: TMainForm
+  Left = 2279
+  Height = 800
+  Top = 157
+  Width = 1200
+  Caption = 'OptiLibre'
+  ClientHeight = 800
+  ClientWidth = 1200
+  KeyPreview = True
+  Menu = MainMenu
+  Position = poScreenCenter
+  LCLVersion = '4.8.0.0'
+  OnCloseQuery = FormCloseQuery
+  OnCreate = FormCreate
+  OnKeyDown = FormKeyDown
+  OnResize = FormResize
+  object StatusBar: TStatusBar
+    Left = 0
+    Height = 20
+    Top = 780
+    Width = 1200
+    Panels = <    
+      item
+        Style = psOwnerDraw
+        Text = 'CursorPosition'
+        Width = 80
+      end    
+      item
+        Width = 40
+      end    
+      item
+        Width = 40
+      end    
+      item
+        Width = 40
+      end    
+      item
+        Width = 40
+      end    
+      item
+        Width = 40
+      end    
+      item
+        Width = 40
+      end    
+      item
+        Width = 120
+      end    
+      item
+        Width = 120
+      end>
+    SimplePanel = False
+    OnDrawPanel = StatusBarDrawPanel
+  end
+  object ToolBar1: TToolBar
+    Left = 0
+    Height = 48
+    Top = 0
+    Width = 1200
+    ButtonHeight = 44
+    ButtonWidth = 64
+    Caption = 'ToolBar1'
+    Images = ImageList
+    ShowCaptions = True
+    TabOrder = 3
+    object ToolButton11: TToolButton
+      Left = 1
+      Hint = 'New'
+      Top = 2
+      Caption = 'New'
+      ImageIndex = 0
+      MenuItem = NewFile
+      ParentShowHint = False
+      ShowHint = True
+      Style = tbsDropDown
+      OnClick = acNewExecute
+    end
+    object ToolButton1: TToolButton
+      Left = 77
+      Top = 2
+      Action = acOpen
+      ParentShowHint = False
+      ShowHint = True
+    end
+    object ToolButton2: TToolButton
+      Left = 141
+      Top = 2
+      Action = acSave
+      ParentShowHint = False
+      ShowHint = True
+    end
+    object ToolButton3: TToolButton
+      Left = 205
+      Top = 2
+      Action = acSolve
+      ParentShowHint = False
+      ShowHint = True
+    end
+    object ToolButton17: TToolButton
+      Left = 269
+      Top = 2
+      Action = acSolveRelaxed
+      ParentShowHint = False
+      ShowHint = True
+    end
+    object ToolButton14: TToolButton
+      Left = 356
+      Top = 2
+      Action = acSolveBasis
+      ParentShowHint = False
+      ShowHint = True
+    end
+    object PriorityPanel: TPanel
+      Left = 428
+      Height = 44
+      Top = 2
+      Width = 66
+      BevelOuter = bvNone
+      ClientHeight = 44
+      ClientWidth = 66
+      ParentBackground = False
+      ParentColor = False
+      TabOrder = 0
+      OnClick = PriorityPanelClick
+      object PriorityLabel: TLabel
+        Left = 0
+        Height = 16
+        Top = 0
+        Width = 43
+        Caption = 'Priority'
+      end
+      object Priority: TComboBox
+        Left = 0
+        Height = 24
+        Hint = 'Thread priority'
+        Top = 16
+        Width = 60
+        ItemHeight = 0
+        ItemIndex = 3
+        Items.Strings = (
+          '-3'
+          '-2'
+          '-1'
+          '0'
+          '1'
+          '2'
+          '3'
+        )
+        ParentColor = True
+        ParentShowHint = False
+        ShowHint = True
+        Style = csOwnerDrawFixed
+        TabOrder = 0
+        Text = '0'
+        OnChange = PriorityChange
+        OnDrawItem = PriorityDrawItem
+      end
+    end
+    object ToolButton13: TToolButton
+      Left = 494
+      Top = 2
+      Action = acStop
+      ParentShowHint = False
+      ShowHint = True
+    end
+    object ToolButton4: TToolButton
+      Left = 558
+      Height = 44
+      Top = 2
+      Caption = 'ToolButton4'
+      Style = tbsDivider
+    end
+    object ToolButton9: TToolButton
+      Left = 563
+      Top = 2
+      Action = acUndo
+      ParentShowHint = False
+      ShowHint = True
+    end
+    object ToolButton10: TToolButton
+      Left = 627
+      Top = 2
+      Action = acRedo
+      ParentShowHint = False
+      ShowHint = True
+    end
+    object ToolButton12: TToolButton
+      Left = 691
+      Height = 44
+      Top = 2
+      Caption = 'ToolButton12'
+      Style = tbsDivider
+    end
+    object ToolButton5: TToolButton
+      Left = 696
+      Top = 2
+      Action = acFind
+      ParentShowHint = False
+      ShowHint = True
+    end
+    object ToolButton6: TToolButton
+      Left = 760
+      Top = 2
+      Action = acFindPrev
+      ParentShowHint = False
+      ShowHint = True
+    end
+    object ToolButton7: TToolButton
+      Left = 824
+      Top = 2
+      Action = acFindNext
+      ParentShowHint = False
+      ShowHint = True
+    end
+    object ToolButton8: TToolButton
+      Left = 888
+      Top = 2
+      Action = acReplace
+      ParentShowHint = False
+      ShowHint = True
+    end
+    object ToolButton15: TToolButton
+      Left = 952
+      Height = 44
+      Top = 2
+      Caption = 'ToolButton15'
+      Style = tbsSeparator
+    end
+    object ToolButton16: TToolButton
+      Left = 960
+      Hint = 'Quit'
+      Top = 2
+      Caption = 'Quit'
+      ImageIndex = 20
+      ParentShowHint = False
+      ShowHint = True
+      OnClick = acQuitExecute
+    end
+  end
+  object BottomPanel: TPanel
+    Left = 0
+    Height = 150
+    Top = 630
+    Width = 1200
+    Align = alBottom
+    ClientHeight = 150
+    ClientWidth = 1200
+    TabOrder = 0
+    object PageControl2: TPageControl
+      Left = 1
+      Height = 148
+      Top = 1
+      Width = 1198
+      ActivePage = TabSheet5
+      Align = alClient
+      TabIndex = 0
+      TabOrder = 0
+      object TabSheet5: TTabSheet
+        Caption = 'Log'
+        ClientHeight = 118
+        ClientWidth = 1194
+        inline MemoLog: TSynEdit
+          Left = 0
+          Height = 118
+          Top = 0
+          Width = 1194
+          Align = alClient
+          Font.Height = 13
+          Font.Name = 'DejaVu Sans Mono'
+          Font.Pitch = fpFixed
+          Font.Quality = fqNonAntialiased
+          ParentColor = False
+          ParentFont = False
+          PopupMenu = OutputPopupMenu
+          TabOrder = 0
+          Gutter.Visible = False
+          Gutter.Width = 57
+          Gutter.MouseActions = <>
+          RightGutter.Width = 0
+          RightGutter.MouseActions = <>
+          Keystrokes = <>
+          MouseActions = <>
+          MouseTextActions = <>
+          MouseSelActions = <>
+          VisibleSpecialChars = [vscSpace, vscTabAtLast]
+          ReadOnly = True
+          SelectedColor.BackPriority = 50
+          SelectedColor.ForePriority = 50
+          SelectedColor.FramePriority = 50
+          SelectedColor.BoldPriority = 50
+          SelectedColor.ItalicPriority = 50
+          SelectedColor.UnderlinePriority = 50
+          SelectedColor.StrikeOutPriority = 50
+          BracketHighlightStyle = sbhsBoth
+          BracketMatchColor.Background = clNone
+          BracketMatchColor.Foreground = clNone
+          BracketMatchColor.Style = [fsBold]
+          FoldedCodeColor.Background = clNone
+          FoldedCodeColor.Foreground = clGray
+          FoldedCodeColor.FrameColor = clGray
+          MouseLinkColor.Background = clNone
+          MouseLinkColor.Foreground = clBlue
+          LineHighlightColor.Background = clNone
+          LineHighlightColor.Foreground = clNone
+          inline SynLeftGutterPartList1: TSynGutterPartList
+            object SynGutterMarks1: TSynGutterMarks
+              Width = 24
+              MouseActions = <>
+              MaxExtraMarksColums = 0
+              Options = [sgmoDeDuplicateMarksOnOverflow]
+              MarkupInfo.Background = clBtnFace
+              MarkupInfo.Foreground = clNone
+            end
+            object SynGutterLineNumber1: TSynGutterLineNumber
+              Width = 17
+              MouseActions = <>
+              MarkupInfo.Background = clBtnFace
+              MarkupInfo.Foreground = clNone
+              DigitCount = 2
+              ShowOnlyLineNumbersMultiplesOf = 1
+              ZeroStart = False
+              LeadingZeros = False
+            end
+            object SynGutterChanges1: TSynGutterChanges
+              Width = 4
+              MouseActions = <>
+              ModifiedColor = 59900
+              SavedColor = clGreen
+              MarkupInfo.Background = clNone
+              MarkupInfo.Foreground = clGreen
+              MarkupInfo.FrameColor = 59900
+            end
+            object SynGutterSeparator1: TSynGutterSeparator
+              Width = 2
+              MouseActions = <>
+              MarkupInfo.Background = clWhite
+              MarkupInfo.Foreground = clGray
+            end
+            object SynGutterCodeFolding1: TSynGutterCodeFolding
+              MouseActions = <>
+              MarkupInfo.Background = clNone
+              MarkupInfo.Foreground = clGray
+              MouseActionsExpanded = <>
+              MouseActionsCollapsed = <>
+            end
+          end
+        end
+      end
+      object TabSheet6: TTabSheet
+        Caption = 'Messages'
+        ClientHeight = 118
+        ClientWidth = 1194
+        ImageIndex = 1
+        inline MemoMessages: TSynEdit
+          Left = 0
+          Height = 118
+          Top = 0
+          Width = 1194
+          Align = alClient
+          Font.Height = 13
+          Font.Name = 'DejaVu Sans Mono'
+          Font.Pitch = fpFixed
+          Font.Quality = fqNonAntialiased
+          ParentColor = False
+          ParentFont = False
+          PopupMenu = OutputPopupMenu
+          TabOrder = 0
+          Gutter.Visible = False
+          Gutter.Width = 57
+          Gutter.MouseActions = <>
+          RightGutter.Width = 0
+          RightGutter.MouseActions = <>
+          Keystrokes = <>
+          MouseActions = <>
+          MouseTextActions = <>
+          MouseSelActions = <>
+          VisibleSpecialChars = [vscSpace, vscTabAtLast]
+          ReadOnly = True
+          SelectedColor.BackPriority = 50
+          SelectedColor.ForePriority = 50
+          SelectedColor.FramePriority = 50
+          SelectedColor.BoldPriority = 50
+          SelectedColor.ItalicPriority = 50
+          SelectedColor.UnderlinePriority = 50
+          SelectedColor.StrikeOutPriority = 50
+          BracketHighlightStyle = sbhsBoth
+          BracketMatchColor.Background = clNone
+          BracketMatchColor.Foreground = clNone
+          BracketMatchColor.Style = [fsBold]
+          FoldedCodeColor.Background = clNone
+          FoldedCodeColor.Foreground = clGray
+          FoldedCodeColor.FrameColor = clGray
+          MouseLinkColor.Background = clNone
+          MouseLinkColor.Foreground = clBlue
+          LineHighlightColor.Background = clNone
+          LineHighlightColor.Foreground = clNone
+          inline SynLeftGutterPartList1: TSynGutterPartList
+            object SynGutterMarks1: TSynGutterMarks
+              Width = 24
+              MouseActions = <>
+              MaxExtraMarksColums = 0
+              Options = [sgmoDeDuplicateMarksOnOverflow]
+              MarkupInfo.Background = clBtnFace
+              MarkupInfo.Foreground = clNone
+            end
+            object SynGutterLineNumber1: TSynGutterLineNumber
+              Width = 17
+              MouseActions = <>
+              MarkupInfo.Background = clBtnFace
+              MarkupInfo.Foreground = clNone
+              DigitCount = 2
+              ShowOnlyLineNumbersMultiplesOf = 1
+              ZeroStart = False
+              LeadingZeros = False
+            end
+            object SynGutterChanges1: TSynGutterChanges
+              Width = 4
+              MouseActions = <>
+              ModifiedColor = 59900
+              SavedColor = clGreen
+              MarkupInfo.Background = clNone
+              MarkupInfo.Foreground = clGreen
+              MarkupInfo.FrameColor = 59900
+            end
+            object SynGutterSeparator1: TSynGutterSeparator
+              Width = 2
+              MouseActions = <>
+              MarkupInfo.Background = clWhite
+              MarkupInfo.Foreground = clGray
+            end
+            object SynGutterCodeFolding1: TSynGutterCodeFolding
+              MouseActions = <>
+              MarkupInfo.Background = clNone
+              MarkupInfo.Foreground = clGray
+              MouseActionsExpanded = <>
+              MouseActionsCollapsed = <>
+            end
+          end
+        end
+      end
+    end
+  end
+  object Splitter1: TSplitter
+    Cursor = crVSplit
+    Left = 0
+    Height = 5
+    Top = 625
+    Width = 1200
+    Align = alBottom
+    ResizeAnchor = akBottom
+  end
+  object TopPanel: TPanel
+    Left = 0
+    Height = 577
+    Top = 48
+    Width = 1200
+    Align = alClient
+    ClientHeight = 577
+    ClientWidth = 1200
+    TabOrder = 1
+    object PageControl: TPageControl
+      Left = 1
+      Height = 575
+      Top = 1
+      Width = 1198
+      ActivePage = TabSheetEditor
+      Align = alClient
+      TabIndex = 0
+      TabOrder = 0
+      object TabSheetEditor: TTabSheet
+        Caption = 'Editor'
+        ClientHeight = 545
+        ClientWidth = 1194
+        inline Editor: TSynEdit
+          Left = 0
+          Height = 545
+          Top = 0
+          Width = 1194
+          Align = alClient
+          Font.Height = 13
+          Font.Name = 'DejaVu Sans Mono'
+          Font.Pitch = fpFixed
+          Font.Quality = fqNonAntialiased
+          ParentColor = False
+          ParentFont = False
+          TabOrder = 0
+          Gutter.Width = 57
+          Gutter.MouseActions = <>
+          RightGutter.Width = 0
+          RightGutter.MouseActions = <>
+          Highlighter = SynPasSyn1
+          Keystrokes = <>
+          MouseActions = <>
+          MouseTextActions = <>
+          MouseSelActions = <>
+          VisibleSpecialChars = [vscSpace, vscTabAtLast]
+          SelectedColor.BackPriority = 50
+          SelectedColor.ForePriority = 50
+          SelectedColor.FramePriority = 50
+          SelectedColor.BoldPriority = 50
+          SelectedColor.ItalicPriority = 50
+          SelectedColor.UnderlinePriority = 50
+          SelectedColor.StrikeOutPriority = 50
+          BracketHighlightStyle = sbhsBoth
+          BracketMatchColor.Background = clNone
+          BracketMatchColor.Foreground = clNone
+          BracketMatchColor.Style = [fsBold]
+          FoldedCodeColor.Background = clNone
+          FoldedCodeColor.Foreground = clGray
+          FoldedCodeColor.FrameColor = clGray
+          MouseLinkColor.Background = clNone
+          MouseLinkColor.Foreground = clBlue
+          LineHighlightColor.Background = clNone
+          LineHighlightColor.Foreground = clNone
+          OnChange = EditorChange
+          OnStatusChange = EditorStatusChange
+          inline SynLeftGutterPartList1: TSynGutterPartList
+            object SynGutterMarks1: TSynGutterMarks
+              Width = 24
+              MouseActions = <>
+              MaxExtraMarksColums = 0
+              Options = [sgmoDeDuplicateMarksOnOverflow]
+              MarkupInfo.Background = clBtnFace
+              MarkupInfo.Foreground = clNone
+            end
+            object SynGutterLineNumber1: TSynGutterLineNumber
+              Width = 17
+              MouseActions = <>
+              MarkupInfo.Background = clBtnFace
+              MarkupInfo.Foreground = clNone
+              DigitCount = 2
+              ShowOnlyLineNumbersMultiplesOf = 1
+              ZeroStart = False
+              LeadingZeros = False
+            end
+            object SynGutterChanges1: TSynGutterChanges
+              Width = 4
+              MouseActions = <>
+              ModifiedColor = 59900
+              SavedColor = clGreen
+              MarkupInfo.Background = clNone
+              MarkupInfo.Foreground = clGreen
+              MarkupInfo.FrameColor = 59900
+            end
+            object SynGutterSeparator1: TSynGutterSeparator
+              Width = 2
+              MouseActions = <>
+              MarkupInfo.Background = clWhite
+              MarkupInfo.Foreground = clGray
+            end
+            object SynGutterCodeFolding1: TSynGutterCodeFolding
+              MouseActions = <>
+              MarkupInfo.Background = clNone
+              MarkupInfo.Foreground = clGray
+              MouseActionsExpanded = <>
+              MouseActionsCollapsed = <>
+            end
+          end
+        end
+      end
+      object Matrix: TTabSheet
+        Caption = 'Matrix'
+      end
+      object TabSheetOptions: TTabSheet
+        Caption = 'Options'
+      end
+      object TabSheet2: TTabSheet
+        Caption = 'Results'
+      end
+    end
+  end
+  object MainMenu: TMainMenu
+    Images = MenuImageList
+    Left = 24
+    Top = 24
+    object mFile: TMenuItem
+      Caption = '&File'
+      object NewFile: TMenuItem
+        Caption = 'New'
+        Hint = 'New'
+        ImageIndex = 0
+        object NewLPscript1: TMenuItem
+          Action = acNewLP
+        end
+        object NewFixedMPSscript1: TMenuItem
+          Action = acNewFixedMPS
+        end
+        object NewFreeMPSscript1: TMenuItem
+          Action = acNewFreeMPS
+        end
+        object NewMathProgScript1: TMenuItem
+          Action = acNewMathProg
+        end
+      end
+      object Open1: TMenuItem
+        Caption = '&Open ...'
+        ImageIndex = 1
+        OnClick = acOpenExecute
+      end
+      object Save2: TMenuItem
+        Action = acSave
+        Caption = '&Save'
+      end
+      object Save1: TMenuItem
+        Action = acSaveAs
+        Caption = '&Save as ...'
+      end
+      object Export1: TMenuItem
+        Caption = 'Export Source'
+        ImageIndex = 2
+        object ExporttoHtml1: TMenuItem
+          Caption = 'to Html ...'
+          ImageIndex = 2
+          OnClick = acExportHTMLExecute
+        end
+        object ExporttoRtf1: TMenuItem
+          Caption = 'to Rtf ...'
+          ImageIndex = 2
+          OnClick = acExportRtfExecute
+        end
+        object ExporttoTex1: TMenuItem
+          Caption = 'to LaTeX ...'
+          ImageIndex = 2
+          OnClick = acExportTexExecute
+        end
+      end
+      object ExportMatrice1: TMenuItem
+        Caption = 'Export Matrice'
+        ImageIndex = 18
+        object acMatExpCsv1: TMenuItem
+          Caption = 'to CSV ...'
+          ImageIndex = 2
+          OnClick = acMatExpCsvExecute
+        end
+        object acMatExpHtml1: TMenuItem
+          Caption = 'to HTML ...'
+          ImageIndex = 2
+          OnClick = acMatExpHtmlExecute
+        end
+        object acMatExpRtf1: TMenuItem
+          Caption = 'to RTF ...'
+          ImageIndex = 2
+          OnClick = acMatExpRtfExecute
+        end
+      end
+      object Result1: TMenuItem
+        Caption = 'Export Result'
+        ImageIndex = 16
+        object ExporttoCSV1: TMenuItem
+          Caption = 'Objective to CSV ...'
+          ImageIndex = 2
+          OnClick = ResultExportClick
+        end
+        object ExporttoHTML2: TMenuItem
+          Caption = 'Objective to HTML ...'
+          ImageIndex = 2
+          OnClick = ResultExportClick
+        end
+        object ExporttoRTF2: TMenuItem
+          Caption = 'Objective to RTF ...'
+          ImageIndex = 2
+          OnClick = ResultExportClick
+        end
+        object N7: TMenuItem
+          Caption = '-'
+        end
+        object ExporttoCSV2: TMenuItem
+          Caption = 'Constraints to CSV ...'
+          ImageIndex = 2
+          OnClick = ResultExportClick
+        end
+        object ExporttoHTML3: TMenuItem
+          Caption = 'Constraints to HTML ...'
+          ImageIndex = 2
+          OnClick = ResultExportClick
+        end
+        object ExporttoRTF3: TMenuItem
+          Caption = 'Constraints to RTF ...'
+          ImageIndex = 2
+          OnClick = ResultExportClick
+        end
+      end
+      object Sensitivity1: TMenuItem
+        Caption = 'Export Sensitivity'
+        ImageIndex = 16
+        object ObjectivetoCSV1: TMenuItem
+          Caption = 'Objective to CSV ...'
+          ImageIndex = 2
+          OnClick = ResultExportClick
+        end
+        object ObjectivetoHTML1: TMenuItem
+          Caption = 'Objective to HTML ...'
+          ImageIndex = 2
+          OnClick = ResultExportClick
+        end
+        object ObjectivetoRTF1: TMenuItem
+          Caption = 'Objective to RTF ...'
+          ImageIndex = 2
+          OnClick = ResultExportClick
+        end
+        object N6: TMenuItem
+          Caption = '-'
+        end
+        object ObjectivetoCSV2: TMenuItem
+          Caption = 'Dual to CSV ...'
+          ImageIndex = 2
+          OnClick = ResultExportClick
+        end
+        object ObjectivetoHTML2: TMenuItem
+          Caption = 'Dual to HTML ...'
+          ImageIndex = 2
+          OnClick = ResultExportClick
+        end
+        object ObjectivetoRTF2: TMenuItem
+          Caption = 'Dual to RTF ...'
+          ImageIndex = 2
+          OnClick = ResultExportClick
+        end
+      end
+      object Quit1: TMenuItem
+        Caption = 'Quit'
+        ImageIndex = 20
+        OnClick = acQuitExecute
+      end
+    end
+    object Edit1: TMenuItem
+      Caption = '&Edit'
+      object Cut2: TMenuItem
+        Caption = 'C&ut'
+        ImageIndex = 12
+        OnClick = EditCutClick
+      end
+      object Copy2: TMenuItem
+        Caption = '&Copy'
+        ImageIndex = 13
+        OnClick = EditCopyClick
+      end
+      object Paste2: TMenuItem
+        Caption = '&Paste'
+        ImageIndex = 14
+        OnClick = EditPasteClick
+      end
+      object N1: TMenuItem
+        Caption = '-'
+      end
+      object Undo1: TMenuItem
+        Action = acUndo
+        Caption = '&Undo'
+      end
+      object Redo1: TMenuItem
+        Action = acRedo
+        Caption = '&Redo'
+      end
+    end
+    object Search1: TMenuItem
+      Caption = '&Search'
+      object Search2: TMenuItem
+        Action = acFind
+        Caption = 'Find ...'
+      end
+      object Searchagain1: TMenuItem
+        Action = acFindNext
+        Caption = 'Find next'
+      end
+      object Findprevious1: TMenuItem
+        Action = acFindPrev
+        Caption = 'Find previous'
+      end
+      object Replace1: TMenuItem
+        Action = acReplace
+        Caption = 'Replace ...'
+      end
+      object N4: TMenuItem
+        Caption = '-'
+      end
+      object Gotolinenumber1: TMenuItem
+        Caption = 'Goto line number ...'
+        ImageIndex = 21
+        OnClick = GoToLineNumberClick
+      end
+    end
+    object Problem1: TMenuItem
+      Caption = '&Action'
+      object Solve1: TMenuItem
+        Action = acSolve
+      end
+      object SolveRelaxed1: TMenuItem
+        Action = acSolveRelaxed
+      end
+      object Stop1: TMenuItem
+        Action = acStop
+      end
+      object SyntaxCheck1: TMenuItem
+        Caption = 'Syntax Check'
+        ImageIndex = 15
+        OnClick = acSyntaxCheckExecute
+      end
+      object Statistics1: TMenuItem
+        Caption = 'Statistics ...'
+        ImageIndex = 16
+        OnClick = MenuCommandClick
+      end
+      object LoadBasis1: TMenuItem
+        Caption = 'Solve basis ...'
+        ImageIndex = 4
+        OnClick = acSolveBasisExecute
+      end
+      object Savebasis1: TMenuItem
+        Caption = 'Save basis ...'
+        Enabled = False
+        ImageIndex = 2
+        OnClick = acSaveBasisExecute
+      end
+    end
+    object View: TMenuItem
+      Caption = '&View'
+      object LP1: TMenuItem
+        Caption = 'LP format'
+        Checked = True
+        ImageIndex = 17
+        OnClick = ViewFormatClick
+      end
+      object MPS1: TMenuItem
+        Caption = 'Fixed MPS format'
+        ImageIndex = 18
+        OnClick = ViewFormatClick
+      end
+      object FreeMPS1: TMenuItem
+        Caption = 'Free MPS format'
+        ImageIndex = 22
+        OnClick = ViewFormatClick
+      end
+      object MathProg1: TMenuItem
+        Caption = 'MathProg format'
+        ImageIndex = 23
+        OnClick = ViewFormatClick
+      end
+    end
+    object Options1: TMenuItem
+      Caption = 'Options'
+      object SolverMenu1: TMenuItem
+        Caption = 'Solver'
+        ImageIndex = 29
+        object Saveoptions1: TMenuItem
+          Caption = 'Save solver options ...'
+          ImageIndex = 2
+          OnClick = MenuCommandClick
+        end
+        object Loadoptions1: TMenuItem
+          Caption = 'Load solver options ...'
+          ImageIndex = 1
+          OnClick = MenuCommandClick
+        end
+        object N5: TMenuItem
+          Caption = '-'
+        end
+        object Saveasdefault1: TMenuItem
+          Caption = 'Save solver options as default'
+          ImageIndex = 2
+          OnClick = MenuCommandClick
+        end
+        object Resetoptions1: TMenuItem
+          Caption = 'Restore default solver options'
+          ImageIndex = 24
+          OnClick = MenuCommandClick
+        end
+      end
+      object DisplayMenu1: TMenuItem
+        Caption = 'Display'
+        ImageIndex = 17
+        object IncreaseFont1: TMenuItem
+          Caption = 'Increase text size'
+          ImageIndex = 26
+          ShortCut = 16571
+          Tag = 1
+        end
+        object DecreaseFont1: TMenuItem
+          Caption = 'Decrease text size'
+          ImageIndex = 27
+          ShortCut = 16573
+          Tag = -1
+        end
+        object ResetFont1: TMenuItem
+          Caption = 'Default text size'
+          ImageIndex = 28
+          ShortCut = 16432
+        end
+        object N8: TMenuItem
+          Caption = '-'
+        end
+        object ClearOutputOnSolve1: TMenuItem
+          Caption = 'Clear Log and Messages when solving'
+          ImageIndex = 30
+          OnClick = ClearOutputOnSolveClick
+        end
+        object SaveDisplaySettings1: TMenuItem
+          Caption = 'Save display settings ...'
+          ImageIndex = 2
+        end
+        object LoadDisplaySettings1: TMenuItem
+          Caption = 'Load display settings ...'
+          ImageIndex = 1
+        end
+      end
+    end
+    object Help1: TMenuItem
+      Caption = 'Help'
+      object About1: TMenuItem
+        Caption = '&About...'
+        ImageIndex = 19
+        OnClick = MenuAboutClick
+      end
+      object Help2: TMenuItem
+        Caption = 'Help ...'
+        ImageIndex = 19
+        OnClick = MenuHelpClick
+      end
+    end
+  end
+  object ActionList1: TActionList
+    Images = ImageList
+    Left = 96
+    Top = 24
+    object acNew: TAction
+      Caption = 'New'
+      Hint = 'New'
+      ImageIndex = 0
+      OnExecute = acNewExecute
+    end
+    object acOpen: TAction
+      Caption = 'Open'
+      Hint = 'Open file'
+      ImageIndex = 1
+      OnExecute = acOpenExecute
+    end
+    object acSave: TAction
+      Caption = 'Save'
+      Hint = 'Save file'
+      ImageIndex = 2
+      OnExecute = acSaveExecute
+    end
+    object acSaveAs: TAction
+      Caption = 'Save as ...'
+      Hint = 'Save file as'
+      ImageIndex = 2
+      OnExecute = acSaveAsExecute
+    end
+    object acSolve: TAction
+      Caption = '&Solve'
+      Hint = 'Solve'
+      ImageIndex = 3
+      OnExecute = acSolveExecute
+    end
+    object acSolveRelaxed: TAction
+      Caption = 'Solve relaxed'
+      Hint = 'Solve ignoring integer restrictions'
+      ImageIndex = 25
+      OnExecute = acSolveRelaxedExecute
+    end
+    object acSolveBasis: TAction
+      Caption = 'Solve basis'
+      Hint = 'Solve basis'
+      ImageIndex = 4
+      OnExecute = acSolveBasisExecute
+    end
+    object acStop: TAction
+      Caption = 'Stop'
+      Enabled = False
+      Hint = 'Stop'
+      ImageIndex = 5
+      OnExecute = acStopExecute
+    end
+    object acUndo: TAction
+      Caption = 'Undo'
+      Enabled = False
+      Hint = 'Undo'
+      ImageIndex = 6
+      OnExecute = acUndoExecute
+    end
+    object acRedo: TAction
+      Caption = 'Redo'
+      Enabled = False
+      Hint = 'Redo'
+      ImageIndex = 7
+      OnExecute = acRedoExecute
+    end
+    object acFind: TAction
+      Caption = 'Find'
+      Hint = 'Find'
+      ImageIndex = 8
+      OnExecute = acFindExecute
+    end
+    object acFindPrev: TAction
+      Caption = 'Previous'
+      Enabled = False
+      Hint = 'Find previous'
+      ImageIndex = 9
+      OnExecute = acFindPrevExecute
+    end
+    object acFindNext: TAction
+      Caption = 'Next'
+      Enabled = False
+      Hint = 'Find next'
+      ImageIndex = 10
+      OnExecute = acFindNextExecute
+    end
+    object acReplace: TAction
+      Caption = 'Replace'
+      Hint = 'Replace'
+      ImageIndex = 11
+      OnExecute = acReplaceExecute
+    end
+    object acNewLP: TAction
+      Caption = 'New LP Script'
+      ImageIndex = 17
+      OnExecute = acNewLPExecute
+    end
+    object acNewFixedMPS: TAction
+      Caption = 'New Fixed MPS Script'
+      ImageIndex = 18
+      OnExecute = acNewFixedMPSExecute
+    end
+    object acNewFreeMPS: TAction
+      Caption = 'New Free MPS Script'
+      ImageIndex = 22
+      OnExecute = acNewFreeMPSExecute
+    end
+    object acNewMathProg: TAction
+      Caption = 'New MathProg Script'
+      ImageIndex = 23
+      OnExecute = acNewMathProgExecute
+    end
+  end
+  object SynPasSyn1: TSynPasSyn
+    Enabled = False
+    CompilerMode = pcmDelphi
+    NestedComments = False
+    TypeHelpers = True
+    StringMultilineMode = []
+    Left = 160
+    Top = 24
+  end
+  object ImageList: TImageList
+    Height = 24
+    Width = 24
+    Left = 224
+    Top = 24
+  end
+  object MenuImageList: TImageList
+    Height = 24
+    Width = 24
+    Left = 264
+    Top = 24
+  end
+  object OutputPopupMenu: TPopupMenu
+    Left = 384
+    Top = 24
+    object ClearOutput1: TMenuItem
+      Caption = 'Clear contents'
+      OnClick = ClearOutput1Click
+    end
+  end
+  object SaveDialogScript: TSaveDialog
+    Filter = 'LP scripts (*.lp)|*.lp|MPS scripts (*.mps)|*.mps|MathProg scripts (*.mod)|*.mod|All files (*.*)|*.*'
+    Options = [ofOverwritePrompt, ofPathMustExist]
+    Left = 304
+    Top = 24
+  end
+  object ExportDialog: TSaveDialog
+    Options = [ofOverwritePrompt, ofPathMustExist]
+    Left = 264
+    Top = 24
+  end
+  object OpenDialogScript: TOpenDialog
+    Filter = 'All known files (*.lp;*.mps;*.mod;*.dat)|*.lp;*.mps;*.mod;*.dat|LP files (*.lp)|*.lp|MPS files (*.mps)|*.mps|MathProg files (*.mod)|*.mod|Data files (*.dat)|*.dat|All files (*.*)|*.*'
+    Options = [ofPathMustExist, ofFileMustExist]
+    Left = 344
+    Top = 24
+  end
+  object OpenDialogBasis: TOpenDialog
+    Filter = 'Basis files (*.bas)|*.bas|All files (*.*)|*.*'
+    Options = [ofPathMustExist, ofFileMustExist]
+    Left = 384
+    Top = 24
+  end
+  object SaveDialogBasis: TSaveDialog
+    DefaultExt = '.bas'
+    Filter = 'Basis files (*.bas)|*.bas|All files (*.*)|*.*'
+    Options = [ofOverwritePrompt, ofPathMustExist]
+    Left = 424
+    Top = 24
+  end
+end
