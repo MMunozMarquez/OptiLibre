@@ -32,6 +32,22 @@ downloaded package with any package installer available on your system. After
 installation, launch OptiLibre from your applications menu or by running
 `optilibre`.
 
+## Quick start
+
+Create a new LP model and enter this small example, which maximizes the value
+of two products subject to limited resources:
+
+```text
+max: 3 x + 2 y;
+x + y <= 6;
+x <= 2 y;
+```
+
+Click **Solve**. The optimal objective is **16**, with `x = 4` and `y = 2`.
+The solution is shown in **Results > Objective**; constraint values are in
+**Results > Constraints**. You can also open one of the
+[example models](#example-models).
+
 ## Main window
 
 The main window has a menu, a toolbar and these tabs:
@@ -48,6 +64,24 @@ The main window has a menu, a toolbar and these tabs:
 The status bar shows the solver status, time and, for models with integer
 variables, the **GAP**. Hover over a status bar panel for a description.
 
+## Screenshots
+
+### Model editor
+
+![Editing the Queens MathProg model](images/editor-queens.png)
+
+![Editing the Traveling Salesman MathProg model](images/editor-tsp2.png)
+
+### MathProg data editor
+
+![Editing data for the Traveling Salesman model](images/data-tsp2.png)
+
+### Results
+
+![Queens model solution, including improved integer solutions](images/solution-queens.png)
+
+![Sensitivity analysis for the maximum flow model](images/sesnsitivity-maxflow.png)
+
 ## Model formats
 
 * **LP format**, **fixed MPS**, **free MPS** and **MathProg** (`.mod` + `.dat`).
@@ -58,6 +92,19 @@ variables, the **GAP**. Hover over a status bar panel for a description.
 * **Conversion between formats:** when the format is changed, OptiLibre
   converts the model. Every format can be exported to MathProg (including LP
   and MPS models). If a conversion is not possible, a warning is shown.
+
+## Example models
+
+The repository includes sample models in several formats:
+
+* [Maximum flow (LP)](OptiLibre/examples/maxflow.lp) and
+  [maximum flow (MPS)](OptiLibre/examples/maxflow.mps).
+* [Queens (MathProg)](OptiLibre/examples/queens.mod), a mixed-integer model
+  whose optimal objective is 8.
+* [Traveling Salesman (MathProg)](OptiLibre/examples/tsp.mod), with data
+  included in the model; the optimal tour length is 6859.
+* [Traveling Salesman model](OptiLibre/examples/tsp2.mod) with separate
+  [data](OptiLibre/examples/tsp2.dat).
 
 ## Editor
 
