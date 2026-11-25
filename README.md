@@ -17,6 +17,10 @@ OptiLibre uses to solve models.
 Download and run the [OptiLibre 6.0 Windows installer](https://github.com/MMunozMarquez/OptiLibre/raw/refs/heads/main/windows-installer/OptiLibre-Setup-6.0.exe),
 then follow the setup wizard. The installer is for 64-bit Windows.
 
+You can also install OptiLibre from the Microsoft Store. Open the listing in
+the [Microsoft Store app](ms-windows-store://pdp/?productid=9NR7ZG633P6L) or
+view it on the [web](https://apps.microsoft.com/detail/9NR7ZG633P6L).
+
 ### Linux
 
 Download the Debian package for 64-bit (amd64) systems:
